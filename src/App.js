@@ -6,7 +6,7 @@ const API_URL = "http://www.omdbapi.com?apikey=f36ce219";
 
 function App() {
 
-  //Fetch movies
+  //Fetch movies 
   const searchMovies = async (title) => {
       const response = await fetch(`${API_URL}&s=${title}`)
       const data = await response.json()
