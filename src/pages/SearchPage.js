@@ -1,6 +1,5 @@
 import '../styles/SearchPage.css'
 import {useState, useEffect} from 'react';
-import reqTrending from '../requests/reqTrending';
 import results from './tempdata';
 import MovieList from '../components/MovieList';
 
@@ -19,12 +18,20 @@ function SearchPage(){
     console.log('search for ', searchTerm)
   }
 
-
-  
   // **LOOK AT RESULT***
   // make inital request to get trending
+  async function fetchTrending(){
+    const MY_KEY = process.env.REACT_APP_MY_KEY; 
+
+    const response = await fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=${MY_KEY}`)
+    const responseFinal = await response.json();
+    console.log(responseFinal.results);
+
+    setTrendingResults(responseFinal.results)
+ }
+
   // useEffect(()=>{
-  //   setTrendingResults(reqTrending());
+  //   fetchTrending();
   // }, [])
 
 

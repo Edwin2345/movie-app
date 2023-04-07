@@ -12,9 +12,9 @@ function MovieList({data, isTrending}){
 
 
          for(let i=0; i<4; ++i){
-           if(copyData[i].media_type === 'person'){
+            while(copyData[i].media_type === 'person'){
              copyData.splice(i,1);
-           }
+            }
            movieRow.push(<MovieCard movie={copyData[i]} key={data[i].id}/>)
          }
 
