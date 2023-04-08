@@ -1,4 +1,3 @@
-import '../styles/SearchPage.css'
 import {useState, useEffect} from 'react';
 import results from './tempdata';
 import MovieList from '../components/MovieList';
@@ -30,10 +29,9 @@ function SearchPage(){
     setTrendingResults(responseFinal.results)
  }
 
-  // useEffect(()=>{
-  //   fetchTrending();
-  // }, [])
-
+  useEffect(()=>{
+    fetchTrending();
+  }, [])
 
   return(
   <>
@@ -59,7 +57,7 @@ function SearchPage(){
           <h2 className="font-thin text-white mt-10  text-[3rem] md:text-[3rem] w-full">Trending Today</h2>
       </div>
     </div>
-    <div className="text-center bg-slate-900 min-h-[100vh] mx-[15%] max-w-full flex items-start justify-center">
+    <div className="text-center bg-slate-900 min-h-[100vh] mx-[15%] lg:mx-[4%] xl:mx-[12%] max-w-full flex items-start justify-center">
        <div className="mt-11">
             <MovieList data={trendingResults} isTrending={true}/>
         </div>

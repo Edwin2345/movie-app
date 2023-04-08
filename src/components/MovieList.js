@@ -15,7 +15,7 @@ function MovieList({data, isTrending}){
             while(copyData[i].media_type === 'person'){
              copyData.splice(i,1);
             }
-           movieRow.push(<MovieCard movie={copyData[i]} key={data[i].id}/>)
+           movieRow.push(<MovieCard movie={copyData[i]} key={copyData[i].id}/>)
          }
 
          movieList.push(movieRow);
