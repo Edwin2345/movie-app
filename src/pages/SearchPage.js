@@ -11,13 +11,6 @@ function SearchPage(){
      setSearchTerm(event.target.value)
   }
 
-  const submitHandler = (event)=>{
-    event.preventDefault();
-
-    console.log('search for ', searchTerm)
-  }
-
-  // **LOOK AT RESULT***
   // make inital request to get trending
   async function fetchTrending(){
     const MY_KEY = process.env.REACT_APP_MY_KEY; 
@@ -29,9 +22,20 @@ function SearchPage(){
     setTrendingResults(responseFinal.results)
  }
 
-  useEffect(()=>{
-    fetchTrending();
-  }, [])
+  //REMOVE IF WANT TO TEST LOCAL
+  // useEffect(()=>{
+  //   fetchTrending();
+  // }, [])
+
+
+
+
+  const submitHandler = (event)=>{
+    event.preventDefault();
+
+    console.log('search for', searchTerm)
+  }
+
 
   return(
   <>
@@ -54,10 +58,10 @@ function SearchPage(){
             </div>
             </form>
           </div>
-          <h2 className="font-thin text-white mt-10  text-[3rem] md:text-[3rem] w-full">Trending Today</h2>
+          <h2 className="font-thin text-white mt-10  text-[3rem] md:text-[3rem] w-full">Trending Now</h2>
       </div>
     </div>
-    <div className="text-center bg-slate-900 min-h-[100vh] mx-[15%] lg:mx-[4%] xl:mx-[12%] max-w-full flex items-start justify-center">
+    <div className="text-center bg-slate-900 min-h-[100vh] mx-[15%] lg:mx-[4%] xl:mx-[12%] flex items-start justify-center">
        <div className="mt-11">
             <MovieList data={trendingResults} isTrending={true}/>
         </div>
