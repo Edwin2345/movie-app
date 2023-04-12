@@ -44,8 +44,6 @@ function MovieList({data, isTrending}){
 
     }
   
-   
-
     const movieFinal = movieList.map((row,index)=>{
         return(
             <div className= "flex flex-col lg:flex-row mx-[5%]" key={index}>{row}</div>   

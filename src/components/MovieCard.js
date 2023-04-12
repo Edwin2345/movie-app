@@ -25,7 +25,7 @@ function MovieCard({movie}){
    if(release_date){
       year = `${release_date}`.slice(0,4);
    }
-   else if(first_air_date.length){
+   else if(first_air_date){
       year = `${first_air_date}`.slice(0,4);
    }
 
