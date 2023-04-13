@@ -9,7 +9,7 @@ import ResultsHeader from "../components/ResultsHeader";
 
 function ResultsPage(){
   const location = useLocation();
-  const searchTermVal = location.state.searchTerm;
+  const {searchTerm: searchTermVal, searchData} = location.state;
   const [searchResults, setSearchResults] = useState(results);
     
   //make search request
@@ -25,9 +25,13 @@ function ResultsPage(){
 
   }
 
-  // useEffect(()=>{
-  //    fetchSearch(searchTermVal);
-  // }, [])
+  useEffect(()=>{
+     if(searchData){
+       setSearchResults(searchData);
+       return;
+     }
+    fetchSearch(searchTermVal);
+  }, [])
 
     return(
     <>

@@ -17,7 +17,7 @@ function MovieCard({movie}){
    try {
       score = (vote_average).toFixed(1);
    } catch (error) {
-      score = (0.0).toFixed(1)
+      score = (0.0).toFixed(1);
    }
 
    //calc year
@@ -29,7 +29,7 @@ function MovieCard({movie}){
       year = `${first_air_date}`.slice(0,4);
    }
 
-   //generate Name
+   //generate title
    let title = 'No Title';
    if(movie.title){
       title = movie.title;

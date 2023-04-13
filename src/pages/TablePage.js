@@ -10,10 +10,6 @@ function TablePage(){
    const {state} = useLocation();
    const searchTermVal = state.searchTerm;
 
-   useEffect(()=>{
-      console.log(state.searchResults);
-   },[])
-
    return(
       <>
          {/* Header For Results */}
@@ -34,7 +30,7 @@ function TablePage(){
                </NavLink>
             </div>
             <div className="flex flex-col items-center justify-center lg:text-[1.2rem] text-slate-200 mt-2">
-               <NavLink to="/results" state={{searchTerm: searchTermVal}}end>   
+               <NavLink to="/results" state={{searchTerm: searchTermVal, searchData: state.searchResults}}end>   
                <div className="text-[3rem]  flex flex-col items-center">
                   <BiMovie/>
                   <div className="text-[1rem]">

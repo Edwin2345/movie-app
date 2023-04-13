@@ -24,7 +24,7 @@ function SearchPage(){
 
   //REMOVE IF WANT TO TEST LOCAL
   useEffect(()=>{
-    //   fetchTrending();
+    fetchTrending();
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
   }, [])
 

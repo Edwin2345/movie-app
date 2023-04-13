@@ -1,10 +1,15 @@
+import NoResults from "../pages/NoResults";
 import MovieCard from "./MovieCard";
 
 function MovieList({data, isTrending}){
      // No Results
     if(data.length === 0){
       //Fill in with 404 Error
-      return;
+      return(
+       <div>
+        <NoResults/>
+       </div>
+      );
     }
     
     //filter entries that are not 'movie' or tv
@@ -13,8 +18,12 @@ function MovieList({data, isTrending}){
       return (movie.media_type === 'movie' || movie.media_type === 'tv')
     })
     if(cleanData.length === 0){
-      //Fill in with 404 Error
-      return;
+      //No Movies or tv shows Fill in with 404 Error
+      return(
+        <div>
+         <NoResults/>
+        </div>
+       );
     }
 
     //map to components
