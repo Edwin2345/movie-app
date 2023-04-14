@@ -4,20 +4,87 @@ import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import {AiOutlineFileSearch} from 'react-icons/ai';
 import {BiMovie} from 'react-icons/bi';
+import NoResults from "./NoResults";
+import SortableTable from "../components/SortableTable";
 
 
 function TablePage(){
    const {state} = useLocation();
    const searchTermVal = state.searchTerm;
 
-   return(
-      <>
-         {/* Header For Results */}
+   //display only movies or tv
+   const searchData = state.searchResults.filter((movie)=>{
+      return (movie.media_type === 'movie' || movie.media_type === 'tv');
+   });
+
+   //Reformat All Obj
+   const finalData = searchData.map((movie)=>{
+      let movieObj;
+
+      //Title
+      if(movie.title){
+        movieObj = {...movie};
+      }
+      else if(movie.name){
+         movieObj = {...movie, title: movie.name};
+      }
+      else{
+         movieObj = {...movie, title: "No Title"};
+      }
+   
+      //Genre
+      (movie.media_type === 'movie') ? movieObj = {...movieObj, media_type: 'Movie'} :  movieObj = {...movieObj, media_type: 'TV'};
+
+
+      //Release Date
+      if(movie.release_date){
+         movieObj = {...movieObj};
+       }
+      else if(movie.first_air_date){
+          movieObj = {...movieObj, release_date: movie.first_air_date};
+       }
+       else{
+          movieObj = {...movieObj, release_date: "0001-01-01"};
+       }
+
+       //score
+       try {
+         const score = (movieObj.vote_average).toFixed(1);
+         movieObj = {...movieObj, score: score};
+      } catch (error) {
+         movieObj = {...movieObj, score: (0.0).toFixed(1)};
+      }
+
+      return movieObj;
+   })
+
+   const columnConfig =[
+   {label: 'Title', 
+   render: (movie) => movie.title,
+   },
+   {label: 'Genre', 
+   render: (movie) => movie.media_type,
+   },
+   {label: 'Date', 
+   render: (movie) => movie.release_date,
+   },
+   {label: 'Score', 
+   render: (movie) => movie.score,
+   },
+  ]
+
+  const keyFn = (movie) => {
+   return movie.id;
+  }
+
+
+return(
+      <div>
          <ResultsHeader searchTerm={state.searchTerm} />
-
-
+         {/* conditionally render table */}
+         {searchData.length === 0 ?  (<div className="mt-[8rem]"><NoResults/></div>) :  <div><SortableTable data={finalData} columnConfig={columnConfig} keyFn={keyFn}/></div>}
          {/*Navbar  */}
-         <div className="w-full bg-black fixed bottom-0">
+         <div className="w-full h-[15%] lg:h-[8%] bg-black fixed bottom-0">
          <nav className="flex flex-row justify-between mx-[20%] lg:mx-[35%]">
             <div className="flex flex-col items-center lg:text-[1.2rem] mr-[4rem] text-slate-200 mt-2">
                <NavLink to="/" end>
@@ -40,8 +107,8 @@ function TablePage(){
                </NavLink> 
             </div>
          </nav>
-       </div>
-      </>
+         </div>
+      </div>
    )
 }
 

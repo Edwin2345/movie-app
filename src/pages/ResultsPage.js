@@ -30,7 +30,7 @@ function ResultsPage(){
        setSearchResults(searchData);
        return;
      }
-    fetchSearch(searchTermVal);
+    // fetchSearch(searchTermVal);
   }, [])
 
     return(
