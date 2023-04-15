@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(el);
 
 // 4) render component
 root.render(
-<BrowserRouter>
+<BrowserRouter basename="/movie-app">
   <App/>
 </BrowserRouter>
 )
