@@ -1,6 +1,8 @@
 # MovieLand
 An app that allows user to search their favorite TV shows and movies. Features Sortable Tables, Modals and Fully Responsive Design.
 
+Hosted On: https://edwin2345.github.io/movie-app
+
 ## Home Page (Search)
 ![SearchPage](https://user-images.githubusercontent.com/112472516/232258305-95be04c0-329f-4269-85dc-344371912425.png)
 
