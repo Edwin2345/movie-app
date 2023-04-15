@@ -2,7 +2,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
-import {BrowserRouter} from 'react-router-dom'
 import './index.css';
 
 // 2) select div with id root
@@ -13,8 +12,6 @@ const root = ReactDOM.createRoot(el);
 
 // 4) render component
 root.render(
-<BrowserRouter basename="/movie-app">
   <App/>
-</BrowserRouter>
 )
 
