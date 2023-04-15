@@ -5,14 +5,17 @@ import { GoArrowSmallDown, GoArrowSmallUp} from "react-icons/go";
 
 function SortableTable(props){
    const {columnConfig, data} = props;
-
+   
+   //call sort order hook
    const {sortBy, sortOrder, changeSortColumn, sortedData} = useSort(data, columnConfig);
 
    const sortedConfig = columnConfig.map((column)=>{
+      //no sort value -> return orignal
       if(!column.sortValue){
         return column;
       }
 
+      //else apply column
       return {
       ...column, 
       header: () => (
@@ -36,7 +39,7 @@ function SortableTable(props){
 
 function getIcons(label, sortBy, sortOrder){
     
-    //NOT sorting by columns
+    //NOT sorting by the given column -> but something else
     if( label !== sortBy ){
       return <div>
          <GoArrowSmallUp/>

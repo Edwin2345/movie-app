@@ -26,9 +26,12 @@ function MovieList({data, isTrending}){
        );
     }
 
+    //boolean to chekc if one 1 entry
+    const isOne  = (cleanData.length === 1) ? true : false
+
     //map to components
     const movieComp = cleanData.map((movie)=>{
-      return <MovieCard movie={movie} key={movie.id}/>
+      return <MovieCard movie={movie} key={movie.id} isOne={isOne}/>
     })
 
     //divide into rows of 5 max

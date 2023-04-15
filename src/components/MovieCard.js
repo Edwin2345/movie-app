@@ -2,7 +2,7 @@ import { useState } from "react";
 import Modal from "./Modal";
 import errorImage from './error.png'
 
-function MovieCard({movie}){
+function MovieCard({movie, isOne}){
    const {release_date, first_air_date, vote_average} = movie;
 
    const [showModal, setShowModal] = useState(false);
@@ -44,9 +44,11 @@ function MovieCard({movie}){
    const handleClose = () => {
        setShowModal(false);
    }
+   
+   const maxWidth = isOne ? '50%' : '22.5%';
 
    return(
-    <div className="mx-5 mb-[4rem] border-4 border-amber-200 rounded-md bg-slate-600 hover:bg-gradient-to-r from-yellow-400 to-pink-600 cursor-pointer w-fit lg:max-w-[22.5%]" >
+    <div className={`mx-5 mb-[4rem] border-4 border-amber-200 rounded-md bg-slate-600 hover:bg-gradient-to-r from-yellow-400 to-pink-600 cursor-pointer w-fit lg:max-w-[${maxWidth}]`} >
       <>
          {showModal ? (
          <Modal closeModal={handleClose} movie={movie} title={title} year={year} genre={genre} score={score}/>

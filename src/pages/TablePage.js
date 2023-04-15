@@ -62,7 +62,7 @@ function TablePage(){
    {label: 'Title', 
    render: (movie) => movie.title,
    },
-   {label: 'Genre', 
+   {label: 'Type', 
    render: (movie) => movie.media_type,
    },
    {label: 'Date', 
