@@ -19,13 +19,13 @@ function useSort(data, columnConfig){
        setSortOrder((currSO)=>{
          if(currSO === null){
            setSortBy(label);  
-           return 'asc';
+           return 'desc';
          }
-         else if(currSO === 'asc'){
+         else if(currSO === 'desc'){
              setSortBy(label);  
-             return 'desc';
+             return 'asc';
          }
-         else if(currSO === 'desc'){ 
+         else if(currSO === 'asc'){ 
              setSortBy(null);
              return null;
          }
@@ -38,16 +38,17 @@ function useSort(data, columnConfig){
         //find correct sort function
         const {sortValue} = columnConfig.find((column)=> column.label === sortBy)
 
-         /// COPY PROP !!!! DO NOT MODIFY PROP DIRECTLY BEFORE PASS
         sortedData = [...data].sort((a,b)=>{
             const valueA = sortValue(a);
             const valueB = sortValue(b);
 
             const reverseOrder = sortOrder === 'asc' ? 1 : -1;
-
+             
+            //string
             if( typeof valueA === 'string'){
                 return valueA.localeCompare(valueB) * reverseOrder;
             }
+            //numerical
             else{
                return (valueA - valueB)*reverseOrder; 
             }

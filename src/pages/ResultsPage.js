@@ -19,18 +19,18 @@ function ResultsPage(){
     const response = await fetch(`https://api.themoviedb.org/3/search/multi?api_key=${MY_KEY}&language=en-US&query=${searchTerm}&page=1&include_adult=false`)
     const responseFinal = await response.json();
 
-    console.log(responseFinal.results);
 
     setSearchResults(responseFinal.results);
 
   }
 
   useEffect(()=>{
+     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
      if(searchData){
        setSearchResults(searchData);
        return;
      }
-    // fetchSearch(searchTermVal);
+    fetchSearch(searchTermVal);
   }, [])
 
     return(

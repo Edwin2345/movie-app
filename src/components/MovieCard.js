@@ -45,10 +45,9 @@ function MovieCard({movie, isOne}){
        setShowModal(false);
    }
    
-   const maxWidth = isOne ? '50%' : '22.5%';
 
    return(
-    <div className={`mx-5 mb-[4rem] border-4 border-amber-200 rounded-md bg-slate-600 hover:bg-gradient-to-r from-yellow-400 to-pink-600 cursor-pointer w-fit lg:max-w-[${maxWidth}]`} >
+    <div className={`mx-5 mb-[4rem] border-4 border-amber-200 rounded-md bg-slate-600 hover:bg-gradient-to-r from-yellow-400 to-pink-600 cursor-pointer w-fit md:max-w-[500px] lg:max-w-[300px]`} >
       <>
          {showModal ? (
          <Modal closeModal={handleClose} movie={movie} title={title} year={year} genre={genre} score={score}/>

@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import ResultsHeader from "../components/ResultsHeader";
-import { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import {AiOutlineFileSearch} from 'react-icons/ai';
 import {BiMovie} from 'react-icons/bi';
@@ -11,6 +10,7 @@ import SortableTable from "../components/SortableTable";
 function TablePage(){
    const {state} = useLocation();
    const searchTermVal = state.searchTerm;
+   window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
 
    //display only movies or tv
    const searchData = state.searchResults.filter((movie)=>{
@@ -61,15 +61,19 @@ function TablePage(){
    const columnConfig =[
    {label: 'Title', 
    render: (movie) => movie.title,
+   sortValue: (movie) => movie.title
    },
    {label: 'Type', 
    render: (movie) => movie.media_type,
+   sortValue: (movie) => movie.media_type,
    },
    {label: 'Date', 
    render: (movie) => movie.release_date,
+   sortValue: (movie) => movie.release_date,
    },
    {label: 'Score', 
    render: (movie) => movie.score,
+   sortValue: (movie) => movie.score,
    },
   ]
 
@@ -86,7 +90,7 @@ return(
          {/*Navbar  */}
          <div className="w-full h-[15%] lg:h-[8%] bg-black fixed bottom-0">
          <nav className="flex flex-row justify-between mx-[20%] lg:mx-[35%]">
-            <div className="flex flex-col items-center lg:text-[1.2rem] mr-[4rem] text-slate-200 mt-2">
+            <div className="flex flex-col items-center lg:text-[1.2rem] mr-[4rem] text-slate-200 mt-2 mb-[1rem]">
                <NavLink to="/" end>
                <div className="text-[3rem] flex flex-col items-center">
                   <AiOutlineFileSearch/>
@@ -96,7 +100,7 @@ return(
                </div>
                </NavLink>
             </div>
-            <div className="flex flex-col items-center justify-center lg:text-[1.2rem] text-slate-200 mt-2">
+            <div className="flex flex-col items-center justify-center lg:text-[1.2rem] text-slate-200 mt-2 mb-[1rem]">
                <NavLink to="/results" state={{searchTerm: searchTermVal, searchData: state.searchResults}}end>   
                <div className="text-[3rem]  flex flex-col items-center">
                   <BiMovie/>
