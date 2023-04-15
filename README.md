@@ -18,4 +18,7 @@ Hosted On: https://edwin2345.github.io/movie-app
 
 
 ## Mobile Layout
+![MobileHome](https://user-images.githubusercontent.com/112472516/232258514-2575c919-5e8e-4cee-a68f-dbeb6d203199.png)
+![ResultsMobile](https://user-images.githubusercontent.com/112472516/232258525-8d731bf6-9330-46b9-bbb5-964c2eacb53b.png)
 ![Responsive](https://user-images.githubusercontent.com/112472516/232258368-1db3aa64-4674-45a7-99f6-9c684df0161d.png)
+
