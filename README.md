@@ -9,6 +9,10 @@ Hosted On: https://edwin2345.github.io/movie-app
 ## Results Page
 ![ResultsPage](https://user-images.githubusercontent.com/112472516/232258320-506b201c-b268-42cd-8f58-f924cfa1bc75.png)
 
+## Modal View
+![Modal](https://user-images.githubusercontent.com/112472516/232258416-caa1e71f-17aa-4eed-bb5f-739c275f0789.png)
+
+
 ## Table Page of Results
 ![TablePage](https://user-images.githubusercontent.com/112472516/232258351-a82712dc-d4b1-4f2a-a4f0-89157d4807e3.png)
 
